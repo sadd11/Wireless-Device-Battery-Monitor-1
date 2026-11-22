@@ -5,6 +5,8 @@
 // lock whatever they store.
 #include <windows.h>
 
+#include <string>
+
 // Starts the watcher, or restarts it after the radio was switched off. Returns true when it was just
 // started, so the caller can give devices a moment (they broadcast about every 1-2 s) to be heard.
 bool EnsureBleWatcher();
@@ -28,6 +30,8 @@ bool FastPairLookup(UINT64 addr, FastPairBattery& out);
 void BleWantActiveScan();
 // An advertisement whose name contains "ARMOR-X" (BigBigWon Armor X Pro), see armorx.cpp.
 void ArmorXOnAdvert(UINT64 addr);
+// An advertisement whose name matches an OPPO Enco / realme Buds / Redmi Buds earbud, see buds_ble.cpp.
+void BudsBleOnAdvert(UINT64 addr, const std::wstring& name);
 
 // The standard LE Battery Level (0x180F / 0x2A19) at this address, without pairing; -1 on failure.
 // Blocking for seconds: call from a worker thread with WinRT initialised (marshall.cpp). The address

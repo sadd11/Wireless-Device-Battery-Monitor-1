@@ -148,6 +148,7 @@ std::vector<DeviceStatus> PollAllDevices() {
     PollNothingEar(ctx);  // before the Bluetooth fallback, which skips devices already listed by name
     PollSonyHeadphones(ctx);  // before the Bluetooth fallback, which skips devices already listed by name
     PollMarshall(ctx);    // EMBERTON II: Windows has no level for it; before the Bluetooth fallback as well
+    PollBudsBle(ctx);     // OPPO Enco / realme Buds / Redmi Buds: before the Bluetooth fallback as well
     PollSoundcore(ctx);   // before the Bluetooth fallback: works even with Hands-Free AG disabled
     PollMoondrop(ctx);
     PollDarkrim(ctx);

@@ -175,6 +175,7 @@ void PollGalaxyBuds(PollContext& ctx); // Samsung Galaxy Buds (Bluetooth RFCOMM,
 void PollNothingEar(PollContext& ctx); // Nothing / CMF Ear earbuds (Bluetooth RFCOMM NT Link, not HID)
 void PollSonyHeadphones(PollContext& ctx); // Sony WH / WF headphones and earbuds (Bluetooth RFCOMM, not HID)
 void PollMarshall(PollContext& ctx);   // Marshall EMBERTON II speaker (unpaired LE Battery Service, address from Fast Pair stream)
+void PollBudsBle(PollContext& ctx);   // OPPO Enco / realme Buds / Redmi Buds buds (unpaired LE Battery Service, address from name-matched adverts)
 void PollAkko(PollContext& ctx);       // Akko V9 Dash Pro / Dash V9 Ultra receivers (38EE:000C/000F)
 void PollSoundcore(PollContext& ctx);  // Anker Soundcore Bluetooth headphones / earbuds (RFCOMM)
 void PollMoondrop(PollContext& ctx);   // MOONDROP GM01 Pro headset (WalkPlay 2.4 GHz dongle)

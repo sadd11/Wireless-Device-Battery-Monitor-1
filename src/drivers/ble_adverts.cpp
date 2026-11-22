@@ -131,12 +131,17 @@ void OnReceived(IReceivedArgs* args) {
     args->get_BluetoothAddress(&addr);
     args->get_RawSignalStrengthInDBm(&rssi);
 
-    // The BigBigWon Armor X Pro advertises its name ("ARMOR-X...") in the scan response (active scan, PR #145).
+    // The BigBigWon Armor X Pro advertises its name ("ARMOR-X...") in the scan response (active scan, PR #145);
+    // OPPO Enco / realme Buds / Redmi Buds buds are matched by name too (buds_ble.cpp).
     HSTRING local = nullptr;
     if (SUCCEEDED(adv->get_LocalName(&local)) && local) {
         UINT32 n = 0;
         const wchar_t* s = WindowsGetStringRawBuffer(local, &n);
-        if (s && n && std::wstring(s, n).find(L"ARMOR-X") != std::wstring::npos) ArmorXOnAdvert(addr);
+        if (s && n) {
+            std::wstring name(s, n);
+            if (name.find(L"ARMOR-X") != std::wstring::npos) ArmorXOnAdvert(addr);
+            BudsBleOnAdvert(addr, name);
+        }
         WindowsDeleteString(local);
     }
 
