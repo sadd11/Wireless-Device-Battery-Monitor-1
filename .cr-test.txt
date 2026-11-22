@@ -1,3 +1,2 @@
-line1
-line2
-line3
+AAA BBB CCC
+DDD EEE FFF
